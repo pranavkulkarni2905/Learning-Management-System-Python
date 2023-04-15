@@ -178,7 +178,7 @@
                                     </button>
                                 </h5>
                             </div>
-{% for video in lesson.video_set.all %}
+                                        {% for video in lesson.video_set.all %}
                             <div id="id{{video.lesson.id}}" class="collapse show" aria-labelledby="curriculumheadingOne" data-parent="#accordionCurriculum">
                                 <div class="border-top px-5 py-4 min-height-70 d-md-flex align-items-center">
                                     <div class="d-flex align-items-center me-auto mb-4 mb-md-0">
@@ -186,19 +186,29 @@
                                             <i class="fa fa-youtube-play" aria-hidden="true" style="color:red"></i>
 
                                         </div>
-                                        {% if video.preview == True %}
+                                        {% if check_enroll is not None %}
+                                             <a href="/course/watch-course/{{course.slug}}" target="_blank">
+                                        <div class="ms-4"  data-toggle="tooltip" data-placement="top" title="Click and watch the video !">
+                                            {{video.title}}
+                                        </div>
+                                             </a>
+                                        {% else %}
+
+                                         {% if video.preview == True %}
                                         <a href="https://www.youtube.com/watch?v={{video.youtube_id}}" class="rounded" data-fancybox>
                                         <div class="ms-4">
                                             {{video.title}}
                                         </div>
                                         </a>
                                         {% else %}
-                                             <a href="https://www.youtube.com/watch?v={{video.youtube_id}}" class="rounded" data-fancybox>
-                                        <div class="ms-4">
+
+                                        <div class="ms-4"  data-toggle="tooltip" data-placement="top" title="Enroll This Course !">
                                             {{video.title}}
                                         </div>
                                              </a>
                                         {% endif %}
+                                        {% endif %}
+
                                     </div>
 
 
@@ -214,16 +224,19 @@
                                     </div>
 
                                 </div>
-{% endfor %}
-
                             </div>
+                                {% endfor %}
+                            </div>
+
+
                             {% endfor %}
                         </div>
-
-
-
                     </div>
-                </div>
+
+
+
+
+
 
                 <div id="Instructor" class="mb-8">
                     <ul class="nav course-tab-v1 border-bottom h4 mb-8">
@@ -251,7 +264,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="mb-0">{{course.author.name}}</h4>
-                            <span>Web Developer</span>
+                            <span>Math Expert</span>
                         </div>
                     </div>
 
@@ -409,7 +422,7 @@
                         </div>
                     </div>
 
-                    <ul class="list-unstyled pt-2">
+                    <!--<ul class="list-unstyled pt-2">
                         <li class="media d-flex">
                             <div class="avatar avatar-xxl me-3 me-md-6 flex-shrink-0">
                                 <img src="assets/img/avatars/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
@@ -444,7 +457,7 @@
                                 <p class="mb-6 line-height-md">This course was well organized and covered a lot more details than any other Figma courses. I really enjoy it. One suggestion is that it can be much better if we could complete the prototype together. Since we created 24 frames, I really want to test it on Figma mirror to see all the connections. Could you please let me take a look at the complete prototype?</p>
                             </div>
                         </li>
-                    </ul>
+                    </ul>-->
 
                     <div class="border shadow rounded p-6 p-md-9">
                         <h3 class="mb-2">Add Reviews & Rate</h3>
@@ -619,7 +632,7 @@
                     </div>
                 </div>
 
-                <div class="d-block">
+                <!--<div class="d-block">
                     <div class="border rounded px-6 px-lg-5 px-xl-6 pt-5 shadow">
                         <h3 class="mb-5">Latest Courses</h3>
                         <ul class="list-unstyled mb-0">
@@ -676,21 +689,21 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>-->
 
             </div>
         </div>
 
-        <div class="text-center mb-5 mb-md-8">
+        <!--<div class="text-center mb-5 mb-md-8">
             <h1>Related Courses</h1>
             <p class="font-size-lg text-capitalize">Discover your perfect program in our courses.</p>
         </div>
 
         <div class="mx-n4 mb-12" data-flickity='{"pageDots": true, "prevNextButtons": false, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true}'>
             <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
+                &lt;!&ndash; Card &ndash;&gt;
                 <div class="card border shadow-dark-hover p-2 sk-fade">
-                    <!-- Image -->
+                    &lt;!&ndash; Image &ndash;&gt;
                     <div class="card-zoom position-relative">
                         <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
                             <img class="rounded shadow-light-lg" src="assets/img/products/product-15.jpg" alt="...">
@@ -701,12 +714,12 @@
                         </span>
                     </div>
 
-                    <!-- Footer -->
+                    &lt;!&ndash; Footer &ndash;&gt;
                     <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                        <!-- Preheading -->
+                        &lt;!&ndash; Preheading &ndash;&gt;
                         <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Photography</span></a>
 
-                        <!-- Heading -->
+                        &lt;!&ndash; Heading &ndash;&gt;
                         <div class="position-relative">
                             <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Fashion Photography From Professional</h5></a>
 
@@ -716,7 +729,7 @@
                                         <li class="nav-item px-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2 d-flex icon-uxs text-secondary">
-                                                    <!-- Icon -->
+                                                    &lt;!&ndash; Icon &ndash;&gt;
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
                                                     </svg>
@@ -739,9 +752,9 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
+                &lt;!&ndash; Card &ndash;&gt;
                 <div class="card border shadow-dark-hover p-2 sk-fade">
-                    <!-- Image -->
+                    &lt;!&ndash; Image &ndash;&gt;
                     <div class="card-zoom position-relative">
                         <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
                             <img class="rounded shadow-light-lg" src="assets/img/products/product-14.jpg" alt="...">
@@ -752,12 +765,12 @@
                         </span>
                     </div>
 
-                    <!-- Footer -->
+                    &lt;!&ndash; Footer &ndash;&gt;
                     <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                        <!-- Preheading -->
+                        &lt;!&ndash; Preheading &ndash;&gt;
                         <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Marketing</span></a>
 
-                        <!-- Heading -->
+                        &lt;!&ndash; Heading &ndash;&gt;
                         <div class="position-relative">
                             <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Productivity and Time Management for workplace</h5></a>
 
@@ -767,7 +780,7 @@
                                         <li class="nav-item px-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2 d-flex icon-uxs text-secondary">
-                                                    <!-- Icon -->
+                                                    &lt;!&ndash; Icon &ndash;&gt;
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
                                                     </svg>
@@ -790,9 +803,9 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
+                &lt;!&ndash; Card &ndash;&gt;
                 <div class="card border shadow-dark-hover p-2 sk-fade">
-                    <!-- Image -->
+                    &lt;!&ndash; Image &ndash;&gt;
                     <div class="card-zoom position-relative">
                         <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
                             <img class="rounded shadow-light-lg" src="assets/img/products/product-16.jpg" alt="...">
@@ -803,12 +816,12 @@
                         </span>
                     </div>
 
-                    <!-- Footer -->
+                    &lt;!&ndash; Footer &ndash;&gt;
                     <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                        <!-- Preheading -->
+                        &lt;!&ndash; Preheading &ndash;&gt;
                         <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Personal Development</span></a>
 
-                        <!-- Heading -->
+                        &lt;!&ndash; Heading &ndash;&gt;
                         <div class="position-relative">
                             <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Learn Ethical Hacking From Scratch</h5></a>
 
@@ -818,7 +831,7 @@
                                         <li class="nav-item px-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2 d-flex icon-uxs text-secondary">
-                                                    <!-- Icon -->
+                                                    &lt;!&ndash; Icon &ndash;&gt;
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
                                                     </svg>
@@ -841,9 +854,9 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
+                &lt;!&ndash; Card &ndash;&gt;
                 <div class="card border shadow-dark-hover p-2 sk-fade">
-                    <!-- Image -->
+                    &lt;!&ndash; Image &ndash;&gt;
                     <div class="card-zoom position-relative">
                         <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
                             <img class="rounded shadow-light-lg" src="assets/img/products/product-12.jpg" alt="...">
@@ -854,12 +867,12 @@
                         </span>
                     </div>
 
-                    <!-- Footer -->
+                    &lt;!&ndash; Footer &ndash;&gt;
                     <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                        <!-- Preheading -->
+                        &lt;!&ndash; Preheading &ndash;&gt;
                         <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Development</span></a>
 
-                        <!-- Heading -->
+                        &lt;!&ndash; Heading &ndash;&gt;
                         <div class="position-relative">
                             <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">The Complete JavaScript Course 2020: Real Projects!</h5></a>
 
@@ -869,7 +882,7 @@
                                         <li class="nav-item px-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2 d-flex icon-uxs text-secondary">
-                                                    <!-- Icon -->
+                                                    &lt;!&ndash; Icon &ndash;&gt;
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
                                                     </svg>
@@ -892,9 +905,9 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
+                &lt;!&ndash; Card &ndash;&gt;
                 <div class="card border shadow-dark-hover p-2 sk-fade">
-                    <!-- Image -->
+                    &lt;!&ndash; Image &ndash;&gt;
                     <div class="card-zoom position-relative">
                         <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
                             <img class="rounded shadow-light-lg" src="assets/img/products/product-13.jpg" alt="...">
@@ -905,12 +918,12 @@
                         </span>
                     </div>
 
-                    <!-- Footer -->
+                    &lt;!&ndash; Footer &ndash;&gt;
                     <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                        <!-- Preheading -->
+                        &lt;!&ndash; Preheading &ndash;&gt;
                         <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Marketing</span></a>
 
-                        <!-- Heading -->
+                        &lt;!&ndash; Heading &ndash;&gt;
                         <div class="position-relative">
                             <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Learn Ethical Hacking From Scratch</h5></a>
 
@@ -920,7 +933,7 @@
                                         <li class="nav-item px-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2 d-flex icon-uxs text-secondary">
-                                                    <!-- Icon -->
+                                                    &lt;!&ndash; Icon &ndash;&gt;
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
                                                     </svg>
@@ -943,9 +956,9 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
+                &lt;!&ndash; Card &ndash;&gt;
                 <div class="card border shadow-dark-hover p-2 sk-fade">
-                    <!-- Image -->
+                    &lt;!&ndash; Image &ndash;&gt;
                     <div class="card-zoom position-relative">
                         <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
                             <img class="rounded shadow-light-lg" src="assets/img/products/product-11.jpg" alt="...">
@@ -956,12 +969,12 @@
                         </span>
                     </div>
 
-                    <!-- Footer -->
+                    &lt;!&ndash; Footer &ndash;&gt;
                     <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                        <!-- Preheading -->
+                        &lt;!&ndash; Preheading &ndash;&gt;
                         <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Development</span></a>
 
-                        <!-- Heading -->
+                        &lt;!&ndash; Heading &ndash;&gt;
                         <div class="position-relative">
                             <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">The Complete JavaScript Course 2020: Real Projects!</h5></a>
 
@@ -971,7 +984,7 @@
                                         <li class="nav-item px-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2 d-flex icon-uxs text-secondary">
-                                                    <!-- Icon -->
+                                                    &lt;!&ndash; Icon &ndash;&gt;
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
                                                     </svg>
@@ -994,9 +1007,9 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-                <!-- Card -->
+                &lt;!&ndash; Card &ndash;&gt;
                 <div class="card border shadow-dark-hover p-2 sk-fade">
-                    <!-- Image -->
+                    &lt;!&ndash; Image &ndash;&gt;
                     <div class="card-zoom position-relative">
                         <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
                             <img class="rounded shadow-light-lg" src="assets/img/products/product-10.jpg" alt="...">
@@ -1007,12 +1020,12 @@
                         </span>
                     </div>
 
-                    <!-- Footer -->
+                    &lt;!&ndash; Footer &ndash;&gt;
                     <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                        <!-- Preheading -->
+                        &lt;!&ndash; Preheading &ndash;&gt;
                         <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Marketing</span></a>
 
-                        <!-- Heading -->
+                        &lt;!&ndash; Heading &ndash;&gt;
                         <div class="position-relative">
                             <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Productivity and Time Management for workplace</h5></a>
 
@@ -1022,7 +1035,7 @@
                                         <li class="nav-item px-3">
                                             <div class="d-flex align-items-center">
                                                 <div class="me-2 d-flex icon-uxs text-secondary">
-                                                    <!-- Icon -->
+                                                    &lt;!&ndash; Icon &ndash;&gt;
                                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
                                                     </svg>
@@ -1045,6 +1058,8 @@
                 </div>
             </div>
         </div>
+   -->
+
     </div>
 
 

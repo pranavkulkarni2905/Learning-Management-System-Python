@@ -223,3 +223,29 @@ def VERIFY_PAYMENT(request):
             return render(request,'verify_payment/success.html',context)
 
 
+def WATCH_COURSE(request,slug):
+    course_id=Course.objects.get(slug=slug)
+    course=Course.objects.filter(slug=slug)
+    lecture=request.GET.get('lecture')
+
+
+    check_enroll=UserCourse.objects.get(user=request.user,course=course_id)
+    video = Video.objects.get(id = lecture)
+
+
+    if course.exists():
+        course=course.first()
+    else:
+        return redirect('404')
+
+
+
+    context={
+        'course':course,
+        'video':video,
+        'lecture':lecture,
+
+    }
+
+    return render(request,'course/watch-course.html',context)
+

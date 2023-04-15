@@ -41,7 +41,7 @@
                             <div class="dropdown-menu ps-3 top-0 pe-0 py-0 shadow-none bg-transparent">
                                 <div class="dropdown-menu-md bg-primary rounded dropdown-menu-inner">
                                     {% for j in i.course_set.all %}
-                                    <a class="dropdown-item" href="course-single-v1.html">
+                                    <a class="dropdown-item" href="#">
                                         {{j.title}}
                                     </a>
 {% endfor %}
@@ -87,13 +87,16 @@
                         </a>
 
                     </li>
-                    <li class="nav-item dropdown dropdown-full-width">
+
+
+                     {% if user.is_authenticated and user.first_name == '' %}
+
+                     <li class="nav-item dropdown dropdown-full-width">
                         <a class="nav-link text-gigas"  href="{% url 'my_course' %}">
                             My Courses
                         </a>
 
                     </li>
-                     {% if user.is_authenticated and user.first_name == '' %}
                      <li class="nav-item dropdown border-0 px-1 px-md-3">
                          <a class="nav-link dropdown-toggle" id="user" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
                            Welcome , {{user.username}}
@@ -106,7 +109,7 @@
                                 </a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="dropdown-link" href="">
+                                <a class="dropdown-link" href="{% url 'my_course' %}">
                                     Enrolled Courses
                                 </a>
                             </li>
@@ -118,6 +121,12 @@
                         </ul>
                     </li>
                     {% elif user.is_authenticated %}
+                     <li class="nav-item dropdown dropdown-full-width">
+                        <a class="nav-link text-gigas"  href="{% url 'my_course' %}">
+                            My Courses
+                        </a>
+
+                    </li>
                      <li class="nav-item dropdown border-0 px-1 px-md-3">
                          <a class="nav-link dropdown-toggle" id="user" data-bs-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
                            Welcome , {{user.first_name}}&nbsp;{{user.last_name}}
@@ -130,7 +139,7 @@
                                 </a>
                             </li>
                             <li class="dropdown-item">
-                                <a class="dropdown-link" href="">
+                                <a class="dropdown-link" href="{% url 'my_course' %}">
                                     Enrolled Courses
                                 </a>
                             </li>
@@ -143,6 +152,12 @@
                     </li>
 
                      {% else %}
+                    <li class="nav-item dropdown dropdown-full-width">
+                        <a class="nav-link text-gigas"  href="{% url 'login' %}">
+                            SignIn
+                        </a>
+
+                    </li>
                 <li class="nav-item border-0 px-1 px-md-3 mt-3">
                     <!-- Button trigger account modal -->
                     <a href="#" class="nav-link d-flex p-3 bg-white-all rounded-circle text-gigas icon-xs" data-bs-toggle="modal" data-bs-target="#accountModal">
