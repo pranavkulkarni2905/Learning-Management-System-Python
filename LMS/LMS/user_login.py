@@ -4,6 +4,12 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from app.EmailBackEnd import EmailBackEnd
 
+from django.contrib.auth.decorators import login_required
+@login_required(login_url='/accounts/login/')
+def my_view(request):
+    ...
+
+
 def REGISTER(request):
     if request.method == "POST":
         username = request.POST.get('username')

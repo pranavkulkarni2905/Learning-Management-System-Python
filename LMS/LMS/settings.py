@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-q380-&dv46%4d7!e+i9duv5qj17$=2b+qla79n!!b64=k5(0q=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -68,6 +68,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+
     },
 ]
 

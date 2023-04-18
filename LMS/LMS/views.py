@@ -7,10 +7,15 @@ from django.http import JsonResponse
 from django.db.models import Sum
 from django.contrib import messages
 
+from django.template import RequestContext
+
 import razorpay
 from .settings import *
 
 from django.views.decorators.csrf import csrf_exempt
+
+
+
 
 client=razorpay.Client(auth=(KEY_ID,KEY_SECRET))
 
@@ -111,7 +116,12 @@ def PAGE_NOT_FOUND(request):
     context = {
         'category': category
     }
-    return render(request,'error/404.html',context);
+    return render(request,'error/404.html',context)
+
+def page_not_found_view(request, exception):
+
+    return render(request,'templates/error/404.html', {})
+
 def CHECKOUT(request,slug):
     course=Course.objects.get(slug = slug)
     action=request.GET.get('action')

@@ -18,6 +18,8 @@ from django.urls import path,include
 from.import views,user_login
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls import handler400, handler403, handler404, handler500
+
 
 
 
@@ -28,6 +30,7 @@ urlpatterns = [
 
     path('base',views.BASE,name='base'),
 path('404',views.PAGE_NOT_FOUND,name='404'),
+
     path('',views.HOME,name='home'),
     path('courses',views.SINGLE_COURSE,name='single_course'),
 path('course/filter-data',views.filter_data,name="filter-data"),
@@ -45,3 +48,5 @@ path('my-course',views.MY_COURSE,name='my_course'),
     path('verify_payment',views.VERIFY_PAYMENT,name='verify_payment'),
     path('course/watch-course/<slug:slug>',views.WATCH_COURSE,name='watch_course'),
 ]+ static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+
+handler404 = "LMS.views.page_not_found_view"
