@@ -234,13 +234,13 @@ def VERIFY_PAYMENT(request):
 
 
 def WATCH_COURSE(request,slug):
-    course_id=Course.objects.get(slug=slug)
+    #course_id=Course.objects.get(slug=slug)
     course=Course.objects.filter(slug=slug)
     lecture=request.GET.get('lecture')
 
 
-    check_enroll=UserCourse.objects.get(user=request.user,course=course_id)
-    video = Video.objects.get(id = lecture)
+    #check_enroll=UserCourse.objects.filter(user=request.user,course=course_id)
+    video = Video.objects.filter(id = lecture).first()
 
 
     if course.exists():
@@ -253,7 +253,7 @@ def WATCH_COURSE(request,slug):
     context={
         'course':course,
         'video':video,
-        'lecture':lecture,
+
 
     }
 
